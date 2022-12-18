@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material UI</title>
+  <script src="./Material-UI/react.development.js"></script>
+  <script src="./Material-UI/react-dom.development.js"></script>
+  <script src="./Material-UI/babel.js"></script>
+  <script src="./Material-UI/material-ui.development.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { AppBar, Toolbar, Icon, IconButton, Typography, Button, Stack } = MaterialUI
+    const { Menu, MenuItem } = MaterialUI
+
+    const CatchingPokemonIcon = () => <Icon>catching_pokemon</Icon>
+    const KeyboardArrowDownIcon = () => <Icon>keyboard_arrow_down</Icon>
+
+    function App() {
+      const [anchorEl, setAnchorE1] = React.useState(null)
+
+      return (
+        <AppBar>
+          <Toolbar>
+            <IconButton color='inherit' size='large' aria-label='logo' >
+              <CatchingPokemonIcon />
+            </IconButton>
+            <Typography variant='h6' sx={{ flexGrow: 1 }}>POKEMONAPP</Typography>
+
+            <Stack direction='row' spacing={2}>
+              <Button color='inherit'>Features</Button>
+              <Button color='inherit'>Pricing</Button>
+              <Button color='inherit'>About</Button>
+              <Button color='inherit' id='resources-btn' onClick={e => setAnchorE1(e.currentTarget)} aria-controls={open ? "resources-menu" : undefined} aria-haspopup='true' aria-expanded={open ? "true" : undefined} endIcon={<KeyboardArrowDownIcon/>} >Resources</Button>
+              <Button color='inherit'>Login</Button>
+            </Stack>
+
+            <Menu id='resources-menu' anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={e => setAnchorE1(null)} MenuListProps={{ 'aria-labelledby': 'resources-btn' }}>
+              <MenuItem>Blogs</MenuItem>
+              <MenuItem>Podcasts</MenuItem>
+            </Menu>
+            
+          </Toolbar>
+        </AppBar>
+
+      )
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+  </script>
+</body>
+
+</html>

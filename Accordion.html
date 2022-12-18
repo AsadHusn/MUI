@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material UI</title>
+  <script src="./Material-UI/react.development.js"></script>
+  <script src="./Material-UI/react-dom.development.js"></script>
+  <script src="./Material-UI/babel.js"></script>
+  <script src="./Material-UI/material-ui.development.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { Accordion, AccordionSummary, AccordionDetails, Icon, Typography } = MaterialUI
+    const ExpandIcon = () => <Icon>expand_more</Icon>
+
+    function App() {
+      const [expanded, setExpanded] = React.useState(false)
+
+      return (
+        <div style={{ width: '400px', margin: '4rem auto' }}>
+          <Accordion>
+            <AccordionSummary id='panel1-header' aria-controls='panel1-header' expandIcon={<ExpandIcon />}>
+              <Typography>Accordion 1</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo delectus voluptate aperiam quod quo. Modi placeat at, excepturi dicta in quas porro aperiam libero ab similique praesentium expedita nemo? Corporis?
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+
+          <br/><br/>
+
+          <Accordion expanded={expanded=='panel2'} onChange={(e, v)=> setExpanded(v? 'panel2':false)}>
+            <AccordionSummary id='panel2-header' aria-controls='panel2-header' expandIcon={<ExpandIcon />}>
+              <Typography>Accordion 2</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo delectus voluptate aperiam quod quo. Modi placeat at, excepturi dicta in quas porro aperiam libero ab similique praesentium expedita nemo? Corporis?
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+
+          <Accordion expanded={expanded=='panel3'} onChange={(e, v)=> setExpanded(v? 'panel3':false)}>
+            <AccordionSummary id='panel3-header' aria-controls='panel3-header' expandIcon={<ExpandIcon />}>
+              <Typography>Accordion 3</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo delectus voluptate aperiam quod quo. Modi placeat at, excepturi dicta in quas porro aperiam libero ab similique praesentium expedita nemo? Corporis?
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+        </div>
+      )
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+  </script>
+</body>
+
+</html>

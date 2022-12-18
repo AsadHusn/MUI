@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material UI</title>
+  <script src="./Material-UI/react.development.js"></script>
+  <script src="./Material-UI/react-dom.development.js"></script>
+  <script src="./Material-UI/babel.js"></script>
+  <script src="./Material-UI/material-ui.development.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { Drawer, Typography, Icon, IconButton, Box } = MaterialUI
+
+    const MenuIcon = () => <Icon>menu</Icon>
+
+    function App() {
+      const [isOpen, setIsOpen] = React.useState(true)
+      return (
+        <>
+          <IconButton aria-label='sidebar' onClick={e => setIsOpen(true)}><MenuIcon /> </IconButton>
+          <Drawer anchor='left' width='250px' open={isOpen} onClose={e => setIsOpen(false)}>
+            <Box width='250px' p={2} textAlign='center' role='presentation'>
+              <Typography variant='h6'>Side Panel</Typography>
+            </Box>
+          </Drawer>
+        </>
+
+      )
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+  </script>
+</body>
+
+</html>

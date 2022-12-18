@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material UI</title>
+  <script src="./Material-UI/react.development.js"></script>
+  <script src="./Material-UI/react-dom.development.js"></script>
+  <script src="./Material-UI/babel.js"></script>
+  <script src="./Material-UI/material-ui.development.js"></script>
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" /> -->
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { Box, Stack, Divider, Grid, Paper } = MaterialUI
+
+    function App() {
+
+      return (
+        <>
+          <Box component='section' display='flex' height='100px' width='100px' bgcolor='primary.main' sx={{
+            color: 'white',
+            p: 2,
+            '&:hover': {
+              bgcolor: 'primary.light',
+              border: '1px dashed grey'
+            }
+          }} >
+            Box
+          </Box>
+
+          <br />
+
+          <Stack direction='row' justifyContent='center' spacing={2} divider={<Divider orientation='vertical' flexItem />} sx={{ border: 1 }}>
+            <Box>one</Box>
+            <Box>two</Box>
+            <Box>three</Box>
+          </Stack>
+
+          <br /><br />
+
+          <Grid container columnSpacing={2} rowSpacing={2} bgcolor='secondary.light'>
+            <Grid item xs={6} >
+              <Box bgcolor='primary.light'>Item 1</Box>
+            </Grid>
+            <Grid item xs={6} >
+              <Box bgcolor='primary.light'>Item 2</Box>
+            </Grid>
+            <Grid item xs={6} >
+              <Box bgcolor='primary.light'>Item 3</Box>
+            </Grid>
+            <Grid item xs={6} >
+              <Box bgcolor='primary.light'>Item 4</Box>
+            </Grid>
+          </Grid>
+
+          <br /><br />
+          
+          <Paper elevation={4}>
+            Hello Paper
+          </Paper>
+          <br/>
+          <Paper variant='outlined' square>
+            Hello Paper 2
+          </Paper>
+
+        </>
+      )
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+  </script>
+</body>
+
+</html>

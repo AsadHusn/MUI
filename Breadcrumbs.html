@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material UI</title>
+  <script src="./Material-UI/react.development.js"></script>
+  <script src="./Material-UI/react-dom.development.js"></script>
+  <script src="./Material-UI/babel.js"></script>
+  <script src="./Material-UI/material-ui.development.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { Breadcrumbs, Link, Typography, Icon } = MaterialUI
+
+    const NavigateNextIcon = () => <Icon>navigate_next</Icon>
+
+    function App() {
+
+      return (
+        <div style={{ textAlign: 'center' }}>
+          <Breadcrumbs aria-label='breadcrumbs' separator={<NavigateNextIcon/>} >
+            <Link href='#' underline='hover' >Home</Link>
+            <Link href='#' underline='hover' >Cataloge</Link>
+            <Link href='#' underline='hover' >Accessories</Link>
+            <Typography color='text.primary'>Shoes</Typography>
+          </Breadcrumbs>
+        </div>
+
+      )
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material UI</title>
+  <script src="./Material-UI/react.development.js"></script>
+  <script src="./Material-UI/react-dom.development.js"></script>
+  <script src="./Material-UI/babel.js"></script>
+  <script src="./Material-UI/material-ui.development.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { Alert, AlertTitle, Icon, Stack, Button } = MaterialUI
+    const SuccessIcon = () => <Icon>check</Icon>
+
+    function App() {
+
+      return (
+        <>
+          <Stack spacing={2} my={2}>
+            <Alert severity='error'>This is an error alert</Alert>
+            <Alert severity='warning'>This is a warning alert</Alert>
+            <Alert severity='info'>This is an info alert</Alert>
+            <Alert severity='success'>This is an success alert</Alert>
+          </Stack>
+
+          <Stack spacing={1} my={2} >
+            <Alert variant='outlined' severity='error'>This is an error alert</Alert>
+            <Alert variant='outlined' severity='warning'>This is a warning alert</Alert>
+            <Alert variant='outlined' severity='info'>This is an info alert</Alert>
+            <Alert variant='outlined' severity='success'>This is an success alert</Alert>
+          </Stack>
+
+          <Stack spacing={2} my={2} >
+            <Alert variant='filled' severity='error' onClose={e => alert('closed')}>
+              <AlertTitle>Error</AlertTitle>
+              This is an error alert
+            </Alert>
+            <Alert variant='filled' severity='warning' action={<Button color='inherit' size='small'>undo</Button>}>
+              <AlertTitle>Warning</AlertTitle>
+              This is a warning alert
+            </Alert>
+            <Alert variant='filled' severity='info'>
+              <AlertTitle>Info</AlertTitle>
+              This is an info alert
+            </Alert>
+            <Alert variant='filled' severity='success' icon={<SuccessIcon />}>
+              <AlertTitle>Success</AlertTitle>
+              This is an success alert
+            </Alert>
+          </Stack>
+        </>
+      )
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+  </script>
+</body>
+
+</html>

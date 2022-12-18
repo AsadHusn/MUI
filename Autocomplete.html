@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material UI</title>
+  <script src="./Material-UI/react.development.js"></script>
+  <script src="./Material-UI/react-dom.development.js"></script>
+  <script src="./Material-UI/babel.js"></script>
+  <script src="./Material-UI/material-ui.development.js"></script>
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" /> -->
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { TextField, Autocomplete } = MaterialUI
+
+    const skills = ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React']
+
+    function App() {
+
+      return (
+        <div style={{ margin: '2rem auto', width: '400px' }}>
+          <Autocomplete options={skills} renderInput={params => <TextField {...params} label='Skills' />} />
+
+          <br />
+
+          <Autocomplete options={skills} renderInput={params => <TextField {...params} label='Skills' />} freeSolo />
+
+        </div>
+      )
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+  </script>
+</body>
+
+</html>

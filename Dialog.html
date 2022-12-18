@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material UI</title>
+  <script src="./Material-UI/react.development.js"></script>
+  <script src="./Material-UI/react-dom.development.js"></script>
+  <script src="./Material-UI/babel.js"></script>
+  <script src="./Material-UI/material-ui.development.js"></script>
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" /> -->
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Box, Button } = MaterialUI
+
+    function App() {
+      const [isOpen, setIsOpen] = React.useState(false)
+
+      return (
+        <Box m={4}>
+          <Button variant='contained' onClick={e => setIsOpen(true)}>Submit</Button>
+
+          <Dialog open={isOpen} onClose={(e, v) => setIsOpen(false)}>
+            <DialogTitle>Submit the test?</DialogTitle>
+            <DialogContent>
+              <DialogContentText>
+                Are you sure to submit the test? You will not be able to edit after submitting.
+              </DialogContentText>
+              <DialogActions>
+                <Button onClick={e => setIsOpen(false)}>Cancel</Button>
+                <Button autoFocus onClick={e => setIsOpen(false)}>Submit</Button>
+              </DialogActions>
+            </DialogContent>
+
+          </Dialog>
+
+        </Box>
+      )
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+  </script>
+</body>
+
+</html>

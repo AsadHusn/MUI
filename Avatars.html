@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material UI</title>
+  <script src="./Material-UI/react.development.js"></script>
+  <script src="./Material-UI/react-dom.development.js"></script>
+  <script src="./Material-UI/babel.js"></script>
+  <script src="./Material-UI/material-ui.development.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { Avatar, AvatarGroup, Stack } = MaterialUI
+
+    function App() {
+      return (
+        <>
+          <Stack direction='row' spacing={1}>
+            <Avatar sx={{ bgcolor: 'primary.main' }} >AS</Avatar>
+            <Avatar sx={{ bgcolor: 'secondary.dark' }} >ZU</Avatar>
+          </Stack>
+
+          <AvatarGroup max={4}>
+            <Avatar sx={{ bgcolor: 'primary.main' }} >AS</Avatar>
+            <Avatar src='https://randomuser.me/api/portraits/women/79.jpg' alt='user' />
+            <Avatar src='https://randomuser.me/api/portraits/men/51.jpg' alt='user' />
+            <Avatar sx={{ bgcolor: 'secondary.dark' }} >ZU</Avatar>
+            <Avatar sx={{ bgcolor: 'success.main' }} >IQ</Avatar>
+          </AvatarGroup>
+
+          <Stack direction='row' spacing={1}>
+            <Avatar sx={{ bgcolor: 'primary.main', width:60, height:60 }} >AS</Avatar>
+            <Avatar sx={{ bgcolor: 'secondary.dark', width:60, height:60 }} >ZU</Avatar>
+          </Stack>
+
+          <Stack direction='row' spacing={1} my={2}>
+            <Avatar variant='square' sx={{ bgcolor: 'primary.main'}} >AS</Avatar>
+            <Avatar variant='rounded' sx={{ bgcolor: 'secondary.dark'}} >ZU</Avatar>
+          </Stack>
+        </>
+      )
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+  </script>
+</body>
+
+</html>

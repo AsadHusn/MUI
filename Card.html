@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material UI</title>
+  <script src="./Material-UI/react.development.js"></script>
+  <script src="./Material-UI/react-dom.development.js"></script>
+  <script src="./Material-UI/babel.js"></script>
+  <script src="./Material-UI/material-ui.development.js"></script>
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" /> -->
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { Card, CardContent, Typography, CardActions, Button, CardMedia } = MaterialUI
+
+    function App() {
+
+      return (
+        <div style={{ width: '300px', margin: '4rem auto' }}>
+          <Card>
+            <CardMedia component='img' height='140px' image='https://source.unsplash.com/random' alt='unsplash' />
+            <CardContent>
+              <Typography variant='h4' gutterBottom>React</Typography>
+              <Typography variant='body2'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum nobis natus consequuntur recusandae nam, voluptas reprehenderit accusamus dicta iusto adipisci.</Typography>
+            </CardContent>
+            <CardActions>
+              <Button size='small'>Share</Button>
+              <Button size='small'>Learn more</Button>
+            </CardActions>
+          </Card>
+        </div>
+      )
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+  </script>
+</body>
+
+</html>

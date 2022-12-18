@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material UI</title>
+  <script src="./Material-UI/react.development.js"></script>
+  <script src="./Material-UI/react-dom.development.js"></script>
+  <script src="./Material-UI/babel.js"></script>
+  <script src="./Material-UI/material-ui.development.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { Rating, Icon } = MaterialUI
+    const FavoriteIcon = () => <Icon>favorite</Icon>
+    const FavoriteBorderIcon = () => <Icon>favorite_border</Icon>
+
+    function App() {
+      const [value, setValue] = React.useState(null)
+      const handleChange = (e, v)=> setValue(v) || console.log(value)
+
+      return (
+        <div style={{ textAlign: 'center' }}>
+
+          <Rating value={value} size='small' onChange={handleChange} /> <br/>
+          <Rating value={value} size='medium' onChange={handleChange} /> <br/>
+          <Rating value={value} size='large' onChange={handleChange} /> <br/>
+
+          <br />
+
+          <Rating value={value} icon={<FavoriteIcon />} emptyIcon={<FavoriteBorderIcon />} onChange={handleChange} />
+
+          <br/><br/>
+
+          <Rating value={value} precision={0.5} onChange={handleChange} /> <br/>
+          <Rating value={value} readOnly/> <br/>
+          <Rating value={value} highlightSelectedOnly onChange={handleChange} /> <br/>
+
+        </div>
+      )
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+  </script>
+</body>
+
+</html>

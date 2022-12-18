@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material UI</title>
+  <script src="./Material-UI/react.development.js"></script>
+  <script src="./Material-UI/react-dom.development.js"></script>
+  <script src="./Material-UI/babel.js"></script>
+  <script src="./Material-UI/material-ui.development.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { FormControlLabel, Checkbox, Icon, FormControl, FormLabel, FormGroup, FormHelperText } = MaterialUI
+
+    const BookmarkIcon = () => <Icon>bookmark</Icon>
+    const BookmarkBorderIcon = () => <Icon>bookmark_border</Icon>
+
+
+    function App() {
+      const [value, setValue] = React.useState(false)
+      const [skills, setSkills] = React.useState([])
+
+      const handleSkillsChange = e => console.log(skills) || skills.indexOf(e.target.value) == -1 ? setSkills([...skills, e.target.value]) : setSkills(skills.filter(skill => skill != e.target.value))
+
+      return (
+        <div style={{ textAlign: 'center' }}>
+          <FormControlLabel control={<Checkbox />} label='I accept terms & conditions' checked={value} onChange={e => setValue(e.target.checked)} />
+
+          <br /><br />
+
+          <FormControlLabel control={<Checkbox icon={<BookmarkBorderIcon />} checkedIcon={<BookmarkIcon />} />} checked={value} onChange={e => setValue(e.target.checked)} />
+
+          <br /><br />
+
+          <FormControl>
+            <FormLabel>Skills</FormLabel>
+            <FormGroup row>
+              <FormControlLabel label='HTML' control={<Checkbox value='html' checked={skills.includes('html')} onChange={handleSkillsChange} />} />
+
+              <FormControlLabel label='CSS' control={<Checkbox value='css' checked={skills.includes('css')} onChange={handleSkillsChange} />} />
+
+              <FormControlLabel label='JavaScript' control={<Checkbox value='js' checked={skills.includes('js')} onChange={handleSkillsChange} />} />
+            </FormGroup>
+            <FormHelperText>Choose your skillset</FormHelperText>
+          </FormControl>
+          
+        </div>
+      )
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+  </script>
+</body>
+
+</html>

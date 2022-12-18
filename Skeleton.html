@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material UI</title>
+  <script src="./Material-UI/react.development.js"></script>
+  <script src="./Material-UI/react-dom.development.js"></script>
+  <script src="./Material-UI/babel.js"></script>
+  <script src="./Material-UI/material-ui.development.js"></script>
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" /> -->
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { Skeleton, Box, Stack, Avatar, Typography } = MaterialUI
+
+    function App() {
+      const [loading, setLoading] = React.useState(true)
+      React.useState((a) => {
+        setTimeout((e) => setLoading(false), 3000)
+      })
+
+      return (
+        <>
+          <Stack m={4} spacing={2}>
+            <Skeleton variant='text' />
+            <Skeleton variant='circular' width={48} height={48} animation={false} />
+            <Skeleton variant='rectangular' width={150} height={75} animation='pulse' />
+            <Skeleton variant='rounded' width={150} height={75} animation='wave' />
+          </Stack>
+
+          <Box m={4} width={256} >
+            {loading ? <Skeleton variant='rectangular>' width={256} height={144} animation='wave' /> : <img src="https://source.unsplash.com/random/256*144" alt="unsplash" width={256} height={144} />}
+
+            <Stack direction='row' spacing={1} mt={1}>
+              {loading ?
+                <Skeleton variant='circular' width={48} height={48} /> :
+                <Avatar>A</Avatar>
+              }
+
+              <Stack width='80%'>
+                {loading ?
+                  <>
+                    <Typography>
+                      <Skeleton variant='text' width='100%' />
+                    </Typography>
+                    <Typography variant='body2'>
+                      <Skeleton variant='text' width='100%' />
+                    </Typography>
+                  </> :
+                  <>
+                    <Typography>React MUI</Typography>
+                    <Typography variant='body2'>Skeleton Component</Typography>
+                  </>
+                }
+              </Stack>
+
+            </Stack>
+          </Box>
+        </>
+      )
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+  </script>
+</body>
+
+</html>

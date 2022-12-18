@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material UI</title>
+  <script src="./Material-UI/react.development.js"></script>
+  <script src="./Material-UI/react-dom.development.js"></script>
+  <script src="./Material-UI/babel.js"></script>
+  <script src="./Material-UI/material-ui.development.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { CssBaseline, AppBar, Toolbar, Icon, Typography, Container, Grid, Button } = MaterialUI
+
+    const {styled} = MaterialUI
+    // const useStyles = makeStyles(theme=>({
+    //   container: {
+    //     backgroundColor: theme.palette.background.paper
+    //   }
+    // }))
+    function App() {
+      const classes = {}
+      console.log(styled)
+      // const classes = useStyles();
+      return (
+        <>
+          <CssBaseline />
+          <AppBar position='relative'>
+            <Toolbar>
+              <Icon>photo_camera</Icon>
+              <Typography variant='h6'>
+                Photo Album
+              </Typography>
+            </Toolbar>
+          </AppBar>
+          <main>
+            <Container maxWidth='sm'>
+              <Typography variant='h2' align='center' color='textPrimary'>
+                Photo Album
+              </Typography>
+              <Typography variant='h5' align='center' color='textSecondary' paragraph>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat similique eveniet laudantium, enim fugit, maiores distinctio quidem eos accusamus ut harum voluptas culpa. Deserunt fuga recusandae quaerat consectetur, a natus!
+              </Typography>
+            </Container>
+            <div className={classes.container}>
+              <Grid container justifyContent='center' spacing={3}>
+                <Grid item>
+                  <Button variant='contained'>
+                    See my photos
+                  </Button>
+                  <Button variant='outlined'>
+                    Secondary Action
+                  </Button>
+                </Grid>
+              </Grid>
+            </div>
+          </main>
+        </>
+      )
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+  </script>
+</body>
+
+</html>

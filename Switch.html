@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material UI</title>
+  <script src="./Material-UI/react.development.js"></script>
+  <script src="./Material-UI/react-dom.development.js"></script>
+  <script src="./Material-UI/babel.js"></script>
+  <script src="./Material-UI/material-ui.development.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { FormControl, FormControlLabel, Switch, FormGroup, FormLabel, FormHelperText } = MaterialUI
+
+    function App() {
+      const [ON, setON] = React.useState(false)
+      const [switches, setSwitches] = React.useState([])
+
+
+      const handleSwitchChange = e=> console.log(switches) || switches.indexOf(e.target.value) == -1 ? setSwitches([...switches, e.target.value]) : setSwitches(switches.filter(s=> s!=e.target.value))
+
+      return (
+        <div style={{ textAlign: 'center' }}>
+
+          <FormControlLabel label='Dark Mode' control={<Switch checked={ON} onChange={e => setON(e.target.checked) | console.log(ON)} size='small' color='success' />} />
+
+          <br /><br />
+
+          <FormControl>
+            <FormLabel>Switch</FormLabel>
+            <FormGroup>
+              <FormControlLabel label='Lights' control={<Switch value='lights' checked={switches.includes('lights')} onChange={handleSwitchChange} />} />
+              <FormControlLabel label='Camera' control={<Switch value='camera' checked={switches.includes('camera')} onChange={handleSwitchChange} />} />
+              <FormControlLabel label='Action' control={<Switch value='action' checked={switches.includes('action')} onChange={handleSwitchChange} />} />
+            </FormGroup>
+            <FormHelperText>Invalid Selection</FormHelperText>
+          </FormControl>
+
+        </div>
+      )
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+  </script>
+</body>
+
+</html>

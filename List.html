@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material UI</title>
+  <script src="./Material-UI/react.development.js"></script>
+  <script src="./Material-UI/react-dom.development.js"></script>
+  <script src="./Material-UI/babel.js"></script>
+  <script src="./Material-UI/material-ui.development.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { List, ListItem, ListItemText, ListItemIcon, ListItemButton, ListItemAvatar, Avatar, Icon, Stack, Divider } = MaterialUI
+    const MailIcon = () => <Icon>mail</Icon>
+
+    function App() {
+      return (
+          <List sx={{ bgcolor: '#efefef', width: 400 }}>
+
+            <ListItem>
+              <ListItemIcon>
+                <ListItemAvatar>
+                  <Avatar><MailIcon /></Avatar>
+                </ListItemAvatar>
+              </ListItemIcon>
+              <ListItemText primary='List item 1' secondary='Secondary Text' />
+            </ListItem>
+
+            <Divider />
+
+            <ListItem>
+              <ListItemButton>
+                <ListItemIcon>
+                  <ListItemAvatar>
+                    <Avatar><MailIcon /></Avatar>
+                  </ListItemAvatar>
+                </ListItemIcon>
+                <ListItemText primary='List item 2' secondary='Inner Button' />
+              </ListItemButton>
+            </ListItem>
+
+            <Divider />
+
+            <ListItemButton>
+              <ListItem>
+                <ListItemIcon>
+                  <ListItemAvatar>
+                    <Avatar><MailIcon /></Avatar>
+                  </ListItemAvatar>
+                </ListItemIcon>
+                <ListItemText primary='List item 3' secondary='Outer Button' />
+              </ListItem>
+            </ListItemButton>
+
+            <Divider />
+
+            <ListItemButton>
+              <ListItem disablePadding>
+                <ListItemIcon>
+                  <ListItemAvatar>
+                    <Avatar><MailIcon /></Avatar>
+                  </ListItemAvatar>
+                </ListItemIcon>
+                <ListItemText primary='List item 4' secondary='Disable Padding' />
+              </ListItem>
+            </ListItemButton>
+
+          </List>
+      )
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material UI</title>
+  <script src="./Material-UI/react.development.js"></script>
+  <script src="./Material-UI/react-dom.development.js"></script>
+  <script src="./Material-UI/babel.js"></script>
+  <script src="./Material-UI/material-ui.development.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { Typography } = MaterialUI
+    
+    function App() {
+      return (
+        <div style={{textAlign:'center', maxWidth:'500px', margin:'auto'}}>
+          <Typography variant='h1' component="h1">Heading 1</Typography>
+          <Typography variant='h2' component="h2">Heading 2</Typography>
+          <Typography variant='h3' component="h3">Heading 3</Typography>
+          <Typography variant='h4' component="h4">Heading 4</Typography>
+          <Typography variant='h5' component="h5">Heading 5</Typography>
+          <Typography variant='h6' component="h6">Heading 6</Typography>
+          <Typography variant='subtitle1' component='h6'>Subtitle 1</Typography>
+          <Typography variant='subtitle2' component='h6'>Subtitle 2</Typography>
+          <Typography variant='body1' component='p' gutterBottom>
+            Body 1 lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo quos odit accusantium reiciendis laboriosam illo amet distinctio a atque obcaecati.
+          </Typography>
+          <Typography variant='body2' component='p'>
+            Body 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore officiis accusamus qui, modi velit esse incidunt nulla aut magnam tenetur.
+          </Typography>
+        </div>
+      )
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material UI</title>
+  <script src="./Material-UI/react.development.js"></script>
+  <script src="./Material-UI/react-dom.development.js"></script>
+  <script src="./Material-UI/babel.js"></script>
+  <script src="./Material-UI/material-ui.development.js"></script>
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" /> -->
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { TextField, InputAdornment, MenuItem } = MaterialUI
+
+    function App() {
+      const [value, setValue] = React.useState('')
+      const [countries, setCountries] = React.useState([])
+
+      return (
+        <div style={{ textAlign: 'center' }}>
+          <TextField label='First Name' variant='outlined' />
+          <TextField label='Last Name' variant='filled' />
+          <TextField label='Full Name' variant='standard' />
+
+          <br /><br />
+
+          <TextField label='Primary' color='primary' size='small' />
+          <TextField label='Secondary' color='secondary' size='small' />
+          <TextField label='Error' color='error' size='small' />
+          <TextField label='Success' color='success' size='small' />
+          <TextField label='Warning' color='warning' size='small' />
+          <TextField label='Info' color='info' size='small' />
+
+          <br /><br />
+
+          <TextField label='Required' required />
+          <TextField label='Error' error />
+          <TextField label='Disabled' disabled />
+          <TextField label='Helper Text' helperText='Do not share your password with anyone' />
+
+          <br /><br />
+
+          <TextField label='Read Only' InputProps={{ readOnly: true }} />
+          <TextField label='Amount' InputProps={{ startAdornment: <InputAdornment position='start'>$</InputAdornment> }} />
+          <TextField label='Weight' InputProps={{ endAdornment: <InputAdornment position='end'>kg</InputAdornment> }} />
+
+
+          <br /><br />
+
+          <TextField label='Required' type='password' value={value} required onChange={e => setValue(e.target.value)} error={!value} helperText={value ? 'Do not share password' : 'Required'} />
+
+          <br /><br />
+
+          <TextField label='Country' select value={value} onChange={e => setValue(e.target.value)} color='secondary' size='small' helperText='Select Country'>
+            <MenuItem value='pak'>Pakistan</MenuItem>
+            <MenuItem value='usa'>USA</MenuItem>
+            <MenuItem value='china'>China</MenuItem>
+          </TextField>
+
+          <TextField label='Countries' select SelectProps={{ multiple: true }} value={countries} onChange={e => setCountries(e.target.value)} helperText='Select multiple countries'>
+            <MenuItem value='pak'>Pakistan</MenuItem>
+            <MenuItem value='usa'>USA</MenuItem>
+            <MenuItem value='china'>China</MenuItem>
+          </TextField>
+          
+        </div>
+      )
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+  </script>
+</body>
+
+</html>

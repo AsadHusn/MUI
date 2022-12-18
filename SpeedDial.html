@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material UI</title>
+  <script src="./Material-UI/react.development.js"></script>
+  <script src="./Material-UI/react-dom.development.js"></script>
+  <script src="./Material-UI/babel.js"></script>
+  <script src="./Material-UI/material-ui.development.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { SpeedDial, SpeedDialAction, Icon, SpeedDialIcon } = MaterialUI
+
+    const FileCopyIcon = () => <Icon>file_copy</Icon>
+    const PrintIcon = () => <Icon>print</Icon>
+    const ShareIcon = () => <Icon>share</Icon>
+    const EditIcon = () => <Icon>edit</Icon>
+
+    function App() {
+      return (
+        <>
+          <SpeedDial ariaLabel='speed dial' sx={{ position: 'absolute', right: 16, bottom: 16 }} icon={<SpeedDialIcon />} >
+            <SpeedDialAction icon={<FileCopyIcon />} tooltipTitle='Copy' tooltipOpen />
+            <SpeedDialAction icon={<PrintIcon />} tooltipTitle='Print' tooltipOpen />
+            <SpeedDialAction icon={<ShareIcon />} tooltipTitle='Share' tooltipOpen />
+
+          </SpeedDial>
+          <SpeedDialIcon />
+          <FileCopyIcon />
+          <PrintIcon />
+          <ShareIcon />
+          <EditIcon />
+
+        </>
+
+      )
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+  </script>
+</body>
+
+</html>
